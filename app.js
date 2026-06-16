@@ -352,15 +352,70 @@ function tripPeriod() {
   return start === end ? start : `${start} – ${end}`;
 }
 
+const TAB_ORDER = ["dashboard", "plan", "documents", "map", "packing", "phrases"];
+
 function switchTab(tabId) {
   $$(".tab").forEach(tab => tab.classList.toggle("active", tab.dataset.tab === tabId));
   $$(".screen").forEach(screen => screen.classList.toggle("active-screen", screen.id === tabId));
+  document.querySelector(`.tab[data-tab="${tabId}"]`)?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
   window.scrollTo({ top: 0, behavior: "smooth" });
   if (tabId === "plan") setTimeout(scrollTodayIntoView, 80);
   if (tabId === "map") setTimeout(() => {
     renderRouteOverview();
     routeMapInstance?.invalidateSize();
   }, 80);
+}
+
+function setupSwipeNavigation() {
+  const swipeArea = document.querySelector("main");
+  if (!swipeArea || !("ontouchstart" in window)) return;
+
+  let startX = 0;
+  let startY = 0;
+  let startedAt = 0;
+  let blocked = false;
+
+  const isInteractiveTarget = target => Boolean(target.closest(
+    "input, textarea, select, button, a, label, dialog, [contenteditable='true'], #interactive-route-map, .leaflet-container"
+  ));
+
+  swipeArea.addEventListener("touchstart", event => {
+    if (event.touches.length !== 1) {
+      blocked = true;
+      return;
+    }
+    const touch = event.touches[0];
+    const edgeMargin = 24;
+    blocked = isInteractiveTarget(event.target)
+      || touch.clientX <= edgeMargin
+      || touch.clientX >= window.innerWidth - edgeMargin;
+    startX = touch.clientX;
+    startY = touch.clientY;
+    startedAt = Date.now();
+  }, { passive: true });
+
+  swipeArea.addEventListener("touchend", event => {
+    if (blocked || event.changedTouches.length !== 1) return;
+    const touch = event.changedTouches[0];
+    const deltaX = touch.clientX - startX;
+    const deltaY = touch.clientY - startY;
+    const duration = Date.now() - startedAt;
+
+    // Nur eine eindeutige, kurze Horizontalbewegung als Reiterwechsel werten.
+    if (duration > 900 || Math.abs(deltaX) < 65 || Math.abs(deltaX) < Math.abs(deltaY) * 1.35) return;
+
+    const activeTabId = document.querySelector(".tab.active")?.dataset.tab;
+    const currentIndex = TAB_ORDER.indexOf(activeTabId);
+    if (currentIndex < 0) return;
+
+    const nextIndex = deltaX < 0 ? currentIndex + 1 : currentIndex - 1;
+    if (nextIndex < 0 || nextIndex >= TAB_ORDER.length) return;
+    switchTab(TAB_ORDER[nextIndex]);
+  }, { passive: true });
+
+  swipeArea.addEventListener("touchcancel", () => {
+    blocked = true;
+  }, { passive: true });
 }
 
 function renderDashboard() {
@@ -1264,4 +1319,5 @@ if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => navigator.serviceWorker.register("service-worker.js"));
 }
 
+setupSwipeNavigation();
 renderAll();

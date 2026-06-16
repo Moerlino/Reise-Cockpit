@@ -135,3 +135,9 @@ Die Kartenkacheln werden bei geöffneter Karte aus dem Internet geladen. OpenStr
 ## Version 15
 
 Die verzögert ladbare OpenStreetMap-Karte wurde wiederhergestellt. Die lokale Routenübersicht erscheint sofort; die interaktive Karte wird erst über „Interaktive Karte laden“ geöffnet. Karlsruhe bleibt Start- und Endpunkt, Annecy der erste Stopp.
+
+
+## Version 16
+- Mobile Wischnavigation: nach links/rechts zwischen den Hauptreitern wechseln.
+- Formulare, Dialoge, Links, Schaltflächen und die interaktive Karte sind von der Wischgeste ausgenommen.
+- Randgesten werden ignoriert, damit die Browser-Zurück-Geste auf iOS nicht gestört wird.

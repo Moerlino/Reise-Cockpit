@@ -1,4 +1,4 @@
-const CACHE_NAME = "france-travel-cockpit-v15-map-button-restored";
+const CACHE_NAME = "france-travel-cockpit-v16-swipe-navigation";
 const APP_SHELL = [
   "./",
   "./index.html",
