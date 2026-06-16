@@ -1,0 +1,765 @@
+{
+  "meta": {
+    "tripName": "Frankreich-Rundreise 2026",
+    "sourceName": "Urlaubsplanung(1).pdf",
+    "scheduleVersion": "1.0",
+    "scheduleRule": "Fehlende Uhrzeiten automatisch ergänzt; pro Reisetag ein Tagespuffer von 1 Stunde. Alle automatisch ergänzten Zeiten sind manuell bearbeitbar.",
+    "mapFormat": "OpenStreetMap route points v1",
+    "routeStart": {
+      "name": "Karlsruhe",
+      "coordinates": {
+        "lat": 49.0069,
+        "lng": 8.4037
+      }
+    }
+  },
+  "days": [
+    {
+      "date": "2026-07-30",
+      "title": "Karlsruhe → Annecy",
+      "location": "Annecy",
+      "accommodation": "ACE Hotel Annecy – 117 € inkl. Frühstück, Parkplatz vor Ort",
+      "hotelMap": "https://www.google.com/maps/search/?api=1&query=ACE+Hotel+Annecy",
+      "routeMap": "https://www.google.com/maps/dir/?api=1&destination=Annecy%2C+Frankreich",
+      "stops": [
+        {
+          "time": "09:00",
+          "title": "Fahrt Karlsruhe → Annecy",
+          "note": "Geplante Fahrzeit: ca. 5 Stunden. Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        },
+        {
+          "time": "14:30",
+          "title": "Palais de l’Île",
+          "note": "Fotopunkt; mittelalterliches Gebäude. Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        },
+        {
+          "time": "15:20",
+          "title": "Pont des Amours",
+          "note": "Brücke am See. Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        },
+        {
+          "time": "16:10",
+          "title": "Schloss von Annecy",
+          "note": "Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        },
+        {
+          "time": "flexibel",
+          "title": "Tagespuffer",
+          "note": "1 Stunde Tagespuffer für Verkehr, Parkplatzsuche, Pausen oder Verzögerungen. Automatisch eingeplant; Zeitangabe in der App manuell bearbeitbar."
+        },
+        {
+          "time": "18:00",
+          "title": "Essen: Liber Art",
+          "note": "41 Rue Vaugelas, 74000 Annecy; glutenfreie Option. Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        }
+      ],
+      "notes": "Erster Reisetag und Übernachtung in Annecy. Zeitplan automatisch aus der vorhandenen Routenplanung und den dort genannten Fahrzeiten abgeleitet; nicht ausdrücklich vorgegebene Uhrzeiten sind Schätzwerte und können im Planeditor geändert werden.",
+      "coordinates": {
+        "lat": 45.8992,
+        "lng": 6.1294
+      }
+    },
+    {
+      "date": "2026-07-31",
+      "title": "Annecy → Bonneval-sur-Arc",
+      "location": "Bonneval-sur-Arc",
+      "accommodation": "Hôtel La Turra – 127 €; Check-in ab 16 Uhr, Check-out bis 10 Uhr",
+      "hotelMap": "https://de.hotel-laturra.com/chambres",
+      "routeMap": "https://www.google.com/maps/dir/?api=1&destination=Bonneval-sur-Arc%2C+Frankreich",
+      "stops": [
+        {
+          "time": "09:00",
+          "title": "Lac de Roselend",
+          "note": "Ca. 2 Stunden Anfahrt; Wanderung ca. 5 km / 1:30 h. https://www.komoot.com/de-de/smarttour/41569264?ref=wsd Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        },
+        {
+          "time": "11:00",
+          "title": "Belvédère de la Cabine",
+          "note": "Aussichtspunkt. https://maps.app.goo.gl/JgZTeaFN2SAR6NSR6 Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        },
+        {
+          "time": "13:15",
+          "title": "Les Chapieux",
+          "note": "Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        },
+        {
+          "time": "14:15",
+          "title": "Col de l’Iseran",
+          "note": "Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        },
+        {
+          "time": "flexibel",
+          "title": "Tagespuffer",
+          "note": "1 Stunde Tagespuffer für Verkehr, Parkplatzsuche, Pausen oder Verzögerungen. Automatisch eingeplant; Zeitangabe in der App manuell bearbeitbar."
+        },
+        {
+          "time": "16:15",
+          "title": "Bonneval-sur-Arc",
+          "note": "Dorfbesichtigung. Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        }
+      ],
+      "notes": "Übernachtung in Bonneval-sur-Arc. Zeitplan automatisch aus der vorhandenen Routenplanung und den dort genannten Fahrzeiten abgeleitet; nicht ausdrücklich vorgegebene Uhrzeiten sind Schätzwerte und können im Planeditor geändert werden.",
+      "coordinates": {
+        "lat": 45.3712,
+        "lng": 7.0474
+      }
+    },
+    {
+      "date": "2026-08-01",
+      "title": "Bonneval-sur-Arc → Briançon",
+      "location": "Briançon",
+      "accommodation": "Airbnb in Briançon – 140 €; gebucht für 01.08.–03.08.",
+      "hotelMap": "https://www.airbnb.de/rooms/46707723",
+      "routeMap": "https://www.google.com/maps/dir/?api=1&destination=Brian%C3%A7on%2C+Frankreich",
+      "stops": [
+        {
+          "time": "09:00",
+          "title": "Fort Victor-Emmanuel",
+          "note": "Ca. 23 Minuten. Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        },
+        {
+          "time": "10:00",
+          "title": "Col du Lautaret",
+          "note": "Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        },
+        {
+          "time": "11:20",
+          "title": "Col du Galibier",
+          "note": "Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        },
+        {
+          "time": "12:15",
+          "title": "Briançon",
+          "note": "Stadtbesichtigung. Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        },
+        {
+          "time": "flexibel",
+          "title": "Tagespuffer",
+          "note": "1 Stunde Tagespuffer für Verkehr, Parkplatzsuche, Pausen oder Verzögerungen. Automatisch eingeplant; Zeitangabe in der App manuell bearbeitbar."
+        },
+        {
+          "time": "14:30",
+          "title": "Le Parc de la Schappe",
+          "note": "Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        },
+        {
+          "time": "17:00",
+          "title": "La Muse Gueule",
+          "note": "Restaurant-/Essenstipp aus der Planung. Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        }
+      ],
+      "notes": "Erster von zwei Tagen in Briançon. Zeitplan automatisch aus der vorhandenen Routenplanung und den dort genannten Fahrzeiten abgeleitet; nicht ausdrücklich vorgegebene Uhrzeiten sind Schätzwerte und können im Planeditor geändert werden.",
+      "coordinates": {
+        "lat": 44.8998,
+        "lng": 6.642
+      }
+    },
+    {
+      "date": "2026-08-02",
+      "title": "Briançon – Wandertag",
+      "location": "Briançon",
+      "accommodation": "Airbnb in Briançon – zweite Nacht",
+      "hotelMap": "https://www.airbnb.de/rooms/46707723",
+      "routeMap": "https://www.komoot.com/de-de/smarttour/e983722790",
+      "stops": [
+        {
+          "time": "09:30",
+          "title": "Wanderung",
+          "note": "Route: https://www.komoot.com/de-de/smarttour/e983722790 Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        },
+        {
+          "time": "flexibel",
+          "title": "Tagespuffer",
+          "note": "1 Stunde Tagespuffer für Verkehr, Parkplatzsuche, Pausen oder Verzögerungen. Automatisch eingeplant; Zeitangabe in der App manuell bearbeitbar."
+        }
+      ],
+      "notes": "Wandertag rund um Briançon. Zeitplan automatisch aus der vorhandenen Routenplanung und den dort genannten Fahrzeiten abgeleitet; nicht ausdrücklich vorgegebene Uhrzeiten sind Schätzwerte und können im Planeditor geändert werden.",
+      "coordinates": {
+        "lat": 44.8998,
+        "lng": 6.642
+      }
+    },
+    {
+      "date": "2026-08-03",
+      "title": "Briançon → Lac de Serre-Ponçon → Sisteron",
+      "location": "Sisteron / Umgebung",
+      "accommodation": "Airbnb – 165,63 €; gebucht für 03.08.–05.08.",
+      "hotelMap": "https://www.airbnb.de/rooms/582674075450951245",
+      "routeMap": "https://www.google.com/maps/dir/?api=1&destination=Sisteron%2C+Frankreich",
+      "stops": [
+        {
+          "time": "09:00",
+          "title": "Lac de Serre-Ponçon",
+          "note": "Ca. 1:20 h. Baden an der Plage du Bois Vieux, 05190 Rousset-Serre-Ponçon, oder ruhige Uferstelle suchen. Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        },
+        {
+          "time": "13:00",
+          "title": "Sisteron",
+          "note": "Ca. 1 Stunde Weiterfahrt. Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        },
+        {
+          "time": "flexibel",
+          "title": "Tagespuffer",
+          "note": "1 Stunde Tagespuffer für Verkehr, Parkplatzsuche, Pausen oder Verzögerungen. Automatisch eingeplant; Zeitangabe in der App manuell bearbeitbar."
+        }
+      ],
+      "notes": "Erste Nacht der Unterkunft vom 03.08. bis 05.08. Zeitplan automatisch aus der vorhandenen Routenplanung und den dort genannten Fahrzeiten abgeleitet; nicht ausdrücklich vorgegebene Uhrzeiten sind Schätzwerte und können im Planeditor geändert werden.",
+      "coordinates": {
+        "lat": 44.196,
+        "lng": 5.946
+      }
+    },
+    {
+      "date": "2026-08-04",
+      "title": "Verdonschlucht und Valensole",
+      "location": "Valensole / Verdon",
+      "accommodation": "Airbnb – zweite Nacht",
+      "hotelMap": "https://www.airbnb.de/rooms/582674075450951245",
+      "routeMap": "https://www.google.com/maps/dir/?api=1&destination=Route+des+Cr%C3%AAtes%2C+Gorges+du+Verdon%2C+Frankreich",
+      "stops": [
+        {
+          "time": "09:00",
+          "title": "Route des Crêtes",
+          "note": "Anfahrt ca. 1:39 h; Rundfahrt ca. 45 Minuten; Verdonschlucht. Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        },
+        {
+          "time": "flexibel",
+          "title": "Tagespuffer",
+          "note": "1 Stunde Tagespuffer für Verkehr, Parkplatzsuche, Pausen oder Verzögerungen. Automatisch eingeplant; Zeitangabe in der App manuell bearbeitbar."
+        },
+        {
+          "time": "19:30",
+          "title": "Valensole",
+          "note": "Lavendelfelder bei Sonnenuntergang. Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        }
+      ],
+      "notes": "Tagesausflug von derselben Unterkunft aus. Zeitplan automatisch aus der vorhandenen Routenplanung und den dort genannten Fahrzeiten abgeleitet; nicht ausdrücklich vorgegebene Uhrzeiten sind Schätzwerte und können im Planeditor geändert werden.",
+      "coordinates": {
+        "lat": 43.8375,
+        "lng": 5.9837
+      }
+    },
+    {
+      "date": "2026-08-05",
+      "title": "Valensole → Avignon",
+      "location": "Avignon",
+      "accommodation": "Airbnb in Avignon – 65 €",
+      "hotelMap": "https://www.airbnb.de/rooms/820233996713738464",
+      "routeMap": "https://www.google.com/maps/dir/?api=1&destination=Avignon%2C+Frankreich",
+      "stops": [
+        {
+          "time": "09:00",
+          "title": "Jullien Oil Mill",
+          "note": "24 Chem. du Moulin à Huile, 84490 Saint-Saturnin-lès-Apt. https://www.moulin-huile-jullien.com/contact Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        },
+        {
+          "time": "10:30",
+          "title": "Lavendelfelder oberhalb von Sault",
+          "note": "Ca. 1 Stunde. Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        },
+        {
+          "time": "12:30",
+          "title": "Avignon – Parken",
+          "note": "https://maps.app.goo.gl/6HfKPS28h5Bjk1S7A Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        },
+        {
+          "time": "flexibel",
+          "title": "Tagespuffer",
+          "note": "1 Stunde Tagespuffer für Verkehr, Parkplatzsuche, Pausen oder Verzögerungen. Automatisch eingeplant; Zeitangabe in der App manuell bearbeitbar."
+        },
+        {
+          "time": "13:00",
+          "title": "Palais des Papes",
+          "note": "Ohne Hund. Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        },
+        {
+          "time": "14:00",
+          "title": "Pont Saint-Bénézet",
+          "note": "Kombipreis laut Planung: 14,50 €. Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        },
+        {
+          "time": "16:30",
+          "title": "Les Halles",
+          "note": "Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        }
+      ],
+      "notes": "Übernachtung in Avignon. Zeitplan automatisch aus der vorhandenen Routenplanung und den dort genannten Fahrzeiten abgeleitet; nicht ausdrücklich vorgegebene Uhrzeiten sind Schätzwerte und können im Planeditor geändert werden.",
+      "coordinates": {
+        "lat": 43.9493,
+        "lng": 4.8055
+      }
+    },
+    {
+      "date": "2026-08-06",
+      "title": "Avignon → Pont du Gard → Nîmes",
+      "location": "Nîmes",
+      "accommodation": "Airbnb bei Nîmes",
+      "hotelMap": "https://www.airbnb.de/rooms/1387655110144878509",
+      "routeMap": "https://www.google.com/maps/dir/?api=1&destination=N%C3%AEmes%2C+Frankreich",
+      "stops": [
+        {
+          "time": "09:00",
+          "title": "Pont du Gard",
+          "note": "Ca. 28 Minuten. Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        },
+        {
+          "time": "11:00",
+          "title": "Nîmes – Parken",
+          "note": "https://maps.app.goo.gl/d566dZvV8ydh3co67 Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        },
+        {
+          "time": "12:00",
+          "title": "Essen: i Fratelli",
+          "note": "Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        },
+        {
+          "time": "flexibel",
+          "title": "Tagespuffer",
+          "note": "1 Stunde Tagespuffer für Verkehr, Parkplatzsuche, Pausen oder Verzögerungen. Automatisch eingeplant; Zeitangabe in der App manuell bearbeitbar."
+        },
+        {
+          "time": "13:00",
+          "title": "Arena von Nîmes",
+          "note": "Eintritt laut Planung: 11 €. Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        },
+        {
+          "time": "15:00",
+          "title": "Maison Carrée",
+          "note": "Eintritt laut Planung: 14,50 €. Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        },
+        {
+          "time": "17:00",
+          "title": "Jardins de la Fontaine",
+          "note": "Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        }
+      ],
+      "notes": "Übernachtung im Raum Nîmes. Zeitplan automatisch aus der vorhandenen Routenplanung und den dort genannten Fahrzeiten abgeleitet; nicht ausdrücklich vorgegebene Uhrzeiten sind Schätzwerte und können im Planeditor geändert werden.",
+      "coordinates": {
+        "lat": 43.8367,
+        "lng": 4.3601
+      }
+    },
+    {
+      "date": "2026-08-07",
+      "title": "Nîmes → Montpellier → Albi",
+      "location": "Albi",
+      "accommodation": "Airbnb in Albi",
+      "hotelMap": "https://www.airbnb.de/trips/v1/reservation-details/ro/RESERVATION2_CHECKIN/HMH2DCKKAH",
+      "routeMap": "https://www.google.com/maps/dir/?api=1&destination=Albi%2C+Frankreich",
+      "stops": [
+        {
+          "time": "09:00",
+          "title": "Montpellier – Parken",
+          "note": "https://maps.app.goo.gl/HEKBGDXRpskcCUub7 Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        },
+        {
+          "time": "09:30",
+          "title": "Cathédrale Saint-Pierre",
+          "note": "Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        },
+        {
+          "time": "10:15",
+          "title": "Place de la Comédie",
+          "note": "Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        },
+        {
+          "time": "11:00",
+          "title": "Esplanade Charles-de-Gaulle",
+          "note": "Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        },
+        {
+          "time": "12:00",
+          "title": "500 Degrés",
+          "note": "Töpferei / Shopping. Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        },
+        {
+          "time": "13:15",
+          "title": "Angelos Gelato Caffè",
+          "note": "Essen / Eis. Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        },
+        {
+          "time": "flexibel",
+          "title": "Tagespuffer",
+          "note": "1 Stunde Tagespuffer für Verkehr, Parkplatzsuche, Pausen oder Verzögerungen. Automatisch eingeplant; Zeitangabe in der App manuell bearbeitbar."
+        },
+        {
+          "time": "14:00",
+          "title": "Weiterfahrt nach Albi",
+          "note": "Ca. 2:40 h. Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        },
+        {
+          "time": "17:00",
+          "title": "Kathedrale von Albi",
+          "note": "Wandmalereien; Eintritt laut Planung: 6 €. Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        },
+        {
+          "time": "18:15",
+          "title": "Stiftskirche Saint-Salvi",
+          "note": "Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        },
+        {
+          "time": "19:00",
+          "title": "Stadtbild von Albi",
+          "note": "Handgeformte Ziegel; teilweise sind Händeabdrücke sichtbar. Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        }
+      ],
+      "notes": "Langer Reisetag mit Montpellier und Albi. Zeitplan automatisch aus der vorhandenen Routenplanung und den dort genannten Fahrzeiten abgeleitet; nicht ausdrücklich vorgegebene Uhrzeiten sind Schätzwerte und können im Planeditor geändert werden.",
+      "coordinates": {
+        "lat": 43.9298,
+        "lng": 2.148
+      }
+    },
+    {
+      "date": "2026-08-08",
+      "title": "Albi → Cordes-sur-Ciel → Dune du Pilat",
+      "location": "Bordeaux / Dune du Pilat",
+      "accommodation": "Best Western Hotel Saint-Exupéry Bordeaux – mit Frühstück",
+      "hotelMap": "https://bestwestern-hotel-saint-exupery-bordeaux.com/eng/",
+      "routeMap": "https://www.google.com/maps/dir/?api=1&destination=Dune+du+Pilat%2C+Frankreich",
+      "stops": [
+        {
+          "time": "09:00",
+          "title": "Cordes-sur-Ciel",
+          "note": "Ca. 27 Minuten. Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        },
+        {
+          "time": "09:45",
+          "title": "Blick auf Cordes-sur-Ciel",
+          "note": "https://maps.app.goo.gl/HR4y5KFnDgfEdSxo9 Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        },
+        {
+          "time": "flexibel",
+          "title": "Tagespuffer",
+          "note": "1 Stunde Tagespuffer für Verkehr, Parkplatzsuche, Pausen oder Verzögerungen. Automatisch eingeplant; Zeitangabe in der App manuell bearbeitbar."
+        },
+        {
+          "time": "12:00",
+          "title": "Dune du Pilat",
+          "note": "Ca. 3:30 h Weiterfahrt. Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        }
+      ],
+      "notes": "Übernachtung im Raum Bordeaux. Zeitplan automatisch aus der vorhandenen Routenplanung und den dort genannten Fahrzeiten abgeleitet; nicht ausdrücklich vorgegebene Uhrzeiten sind Schätzwerte und können im Planeditor geändert werden.",
+      "coordinates": {
+        "lat": 44.5893,
+        "lng": -1.2137
+      }
+    },
+    {
+      "date": "2026-08-09",
+      "title": "Bordeaux",
+      "location": "Bordeaux",
+      "accommodation": "Best Western Hotel Saint-Exupéry Bordeaux – zweite Nacht",
+      "hotelMap": "https://bestwestern-hotel-saint-exupery-bordeaux.com/eng/",
+      "routeMap": "https://www.google.com/maps/dir/?api=1&destination=Bordeaux%2C+Frankreich",
+      "stops": [
+        {
+          "time": "09:30",
+          "title": "Bordeaux entdecken",
+          "note": "Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        },
+        {
+          "time": "flexibel",
+          "title": "Tagespuffer",
+          "note": "1 Stunde Tagespuffer für Verkehr, Parkplatzsuche, Pausen oder Verzögerungen. Automatisch eingeplant; Zeitangabe in der App manuell bearbeitbar."
+        },
+        {
+          "time": "12:30",
+          "title": "LE BOULANGER de l’Hôtel de Ville",
+          "note": "Essenstipp aus der Planung. Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        }
+      ],
+      "notes": "Ganzer Tag in Bordeaux. Zeitplan automatisch aus der vorhandenen Routenplanung und den dort genannten Fahrzeiten abgeleitet; nicht ausdrücklich vorgegebene Uhrzeiten sind Schätzwerte und können im Planeditor geändert werden.",
+      "coordinates": {
+        "lat": 44.8378,
+        "lng": -0.5792
+      }
+    },
+    {
+      "date": "2026-08-10",
+      "title": "Bordeaux → Vannes",
+      "location": "Vannes",
+      "accommodation": "ibis budget Vannes",
+      "hotelMap": "https://www.booking.com/hotel/fr/ibis-budget-vannes.de.html",
+      "routeMap": "https://www.google.com/maps/dir/?api=1&destination=Vannes%2C+Frankreich",
+      "stops": [
+        {
+          "time": "09:00",
+          "title": "Fahrt nach Vannes",
+          "note": "Geplante Fahrzeit: ca. 4:30 h. Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        },
+        {
+          "time": "flexibel",
+          "title": "Tagespuffer",
+          "note": "1 Stunde Tagespuffer für Verkehr, Parkplatzsuche, Pausen oder Verzögerungen. Automatisch eingeplant; Zeitangabe in der App manuell bearbeitbar."
+        },
+        {
+          "time": "14:00",
+          "title": "Vannes",
+          "note": "Ankunft und Stadtbesichtigung. Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        }
+      ],
+      "notes": "Übernachtung im ibis budget Vannes. Zeitplan automatisch aus der vorhandenen Routenplanung und den dort genannten Fahrzeiten abgeleitet; nicht ausdrücklich vorgegebene Uhrzeiten sind Schätzwerte und können im Planeditor geändert werden.",
+      "coordinates": {
+        "lat": 47.6582,
+        "lng": -2.7608
+      }
+    },
+    {
+      "date": "2026-08-11",
+      "title": "Vannes → Carnac → Brocéliande → Mont-Saint-Michel",
+      "location": "Mont-Saint-Michel",
+      "accommodation": "Unterkunft nicht im Dokument angegeben",
+      "hotelMap": "https://www.google.com/maps/search/?api=1&query=Mont-Saint-Michel+Unterkunft",
+      "routeMap": "https://www.google.com/maps/dir/?api=1&destination=Mont-Saint-Michel%2C+Frankreich",
+      "stops": [
+        {
+          "time": "09:00",
+          "title": "Steinreihen von Carnac",
+          "note": "Ca. 20 Minuten. Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        },
+        {
+          "time": "10:30",
+          "title": "Forêt de Brocéliande",
+          "note": "Ca. 1:12 h. Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        },
+        {
+          "time": "12:15",
+          "title": "Le Chêne des Hindrés",
+          "note": "Ca. 14 Minuten. Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        },
+        {
+          "time": "13:00",
+          "title": "Merlins Grab",
+          "note": "Ca. 8 Minuten. Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        },
+        {
+          "time": "14:00",
+          "title": "Fontaine de Jouvence",
+          "note": "Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        },
+        {
+          "time": "flexibel",
+          "title": "Tagespuffer",
+          "note": "1 Stunde Tagespuffer für Verkehr, Parkplatzsuche, Pausen oder Verzögerungen. Automatisch eingeplant; Zeitangabe in der App manuell bearbeitbar."
+        },
+        {
+          "time": "15:00",
+          "title": "La Chaise de Merlin",
+          "note": "Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        },
+        {
+          "time": "16:00",
+          "title": "Weiterfahrt zum Mont-Saint-Michel",
+          "note": "Ca. 4 Stunden. Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        }
+      ],
+      "notes": "Mehrere Stationen; Zeitplanung vor der Reise prüfen. Zeitplan automatisch aus der vorhandenen Routenplanung und den dort genannten Fahrzeiten abgeleitet; nicht ausdrücklich vorgegebene Uhrzeiten sind Schätzwerte und können im Planeditor geändert werden.",
+      "coordinates": {
+        "lat": 48.6361,
+        "lng": -1.5115
+      }
+    },
+    {
+      "date": "2026-08-12",
+      "title": "Mont-Saint-Michel",
+      "location": "Mont-Saint-Michel",
+      "accommodation": "Unterkunft nicht im Dokument angegeben",
+      "hotelMap": "https://www.google.com/maps/search/?api=1&query=Mont-Saint-Michel+Unterkunft",
+      "routeMap": "https://www.google.com/maps/dir/?api=1&destination=Mont-Saint-Michel%2C+Frankreich",
+      "stops": [
+        {
+          "time": "09:30",
+          "title": "Mont-Saint-Michel erkunden",
+          "note": "Tagesprogramm im Dokument noch nicht weiter konkretisiert. Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        },
+        {
+          "time": "flexibel",
+          "title": "Tagespuffer",
+          "note": "1 Stunde Tagespuffer für Verkehr, Parkplatzsuche, Pausen oder Verzögerungen. Automatisch eingeplant; Zeitangabe in der App manuell bearbeitbar."
+        }
+      ],
+      "notes": "Ganzer Tag am Mont-Saint-Michel. Zeitplan automatisch aus der vorhandenen Routenplanung und den dort genannten Fahrzeiten abgeleitet; nicht ausdrücklich vorgegebene Uhrzeiten sind Schätzwerte und können im Planeditor geändert werden.",
+      "coordinates": {
+        "lat": 48.6361,
+        "lng": -1.5115
+      }
+    },
+    {
+      "date": "2026-08-13",
+      "title": "Mont-Saint-Michel → Nordküste",
+      "location": "Nordküste",
+      "accommodation": "Unterkunft nicht im Dokument angegeben",
+      "hotelMap": "",
+      "routeMap": "https://www.google.com/maps/dir/?api=1&destination=Nordk%C3%BCste+Frankreich",
+      "stops": [
+        {
+          "time": "08:30",
+          "title": "Mont-Saint-Michel – Fotospot",
+          "note": "Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        },
+        {
+          "time": "flexibel",
+          "title": "Tagespuffer",
+          "note": "1 Stunde Tagespuffer für Verkehr, Parkplatzsuche, Pausen oder Verzögerungen. Automatisch eingeplant; Zeitangabe in der App manuell bearbeitbar."
+        },
+        {
+          "time": "10:30",
+          "title": "Weiterfahrt an die Nordküste",
+          "note": "Geplante Fahrzeit: ca. 4 Stunden. Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        }
+      ],
+      "notes": "Ziel und Unterkunft an der Küste noch offen. Zeitplan automatisch aus der vorhandenen Routenplanung und den dort genannten Fahrzeiten abgeleitet; nicht ausdrücklich vorgegebene Uhrzeiten sind Schätzwerte und können im Planeditor geändert werden.",
+      "coordinates": {
+        "lat": 49.7072,
+        "lng": 0.2058
+      }
+    },
+    {
+      "date": "2026-08-14",
+      "title": "Nordküste",
+      "location": "Nordküste",
+      "accommodation": "Unterkunft nicht im Dokument angegeben",
+      "hotelMap": "",
+      "routeMap": "",
+      "stops": [
+        {
+          "time": "09:30",
+          "title": "Tag an der Küste",
+          "note": "Konkrete Stationen sind im Dokument noch nicht festgelegt. Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        },
+        {
+          "time": "flexibel",
+          "title": "Tagespuffer",
+          "note": "1 Stunde Tagespuffer für Verkehr, Parkplatzsuche, Pausen oder Verzögerungen. Automatisch eingeplant; Zeitangabe in der App manuell bearbeitbar."
+        }
+      ],
+      "notes": "Offener Planungstag. Zeitplan automatisch aus der vorhandenen Routenplanung und den dort genannten Fahrzeiten abgeleitet; nicht ausdrücklich vorgegebene Uhrzeiten sind Schätzwerte und können im Planeditor geändert werden.",
+      "coordinates": {
+        "lat": 49.7072,
+        "lng": 0.2058
+      }
+    },
+    {
+      "date": "2026-08-15",
+      "title": "Heimfahrt",
+      "location": "Karlsruhe",
+      "accommodation": "",
+      "hotelMap": "",
+      "routeMap": "https://www.google.com/maps/dir/?api=1&destination=Karlsruhe%2C+Deutschland",
+      "stops": [
+        {
+          "time": "09:00",
+          "title": "Heimfahrt",
+          "note": "Geplante Fahrzeit: ca. 6 Stunden. Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        },
+        {
+          "time": "flexibel",
+          "title": "Tagespuffer",
+          "note": "1 Stunde Tagespuffer für Verkehr, Parkplatzsuche, Pausen oder Verzögerungen. Automatisch eingeplant; Zeitangabe in der App manuell bearbeitbar."
+        },
+        {
+          "time": "08:30",
+          "title": "Alpenpässe / Verkehr prüfen",
+          "note": "https://alpenrouten.de/alpenpaesse-verkehrsinfos-wintersperren.html Automatisch erstellte Zeit; in der App manuell bearbeitbar."
+        }
+      ],
+      "notes": "Letzter Reisetag. Zeitplan automatisch aus der vorhandenen Routenplanung und den dort genannten Fahrzeiten abgeleitet; nicht ausdrücklich vorgegebene Uhrzeiten sind Schätzwerte und können im Planeditor geändert werden.",
+      "coordinates": {
+        "lat": 49.0069,
+        "lng": 8.4037
+      }
+    }
+  ],
+  "documents": [
+    {
+      "title": "Planungshinweis",
+      "category": "Reiseplan",
+      "content": "Die Tagesnummerierung im PDF war teilweise widersprüchlich. Der importierte Plan wurde deshalb chronologisch nach den Reisedaten vom 30.07.2026 bis 15.08.2026 geordnet."
+    },
+    {
+      "title": "Noch offene Planung",
+      "category": "To-do",
+      "content": "Unterkünfte und genaue Stationen für Mont-Saint-Michel/Nordküste sind im Ausgangsdokument teilweise noch nicht angegeben. Öffnungszeiten, Preise und Verkehrsbedingungen bitte vor Ort erneut prüfen."
+    },
+    {
+      "title": "Hinweis zum automatischen Zeitplan",
+      "category": "Zeitplanung",
+      "content": "Der Zeitplan verwendet die im Ausgangsdokument genannten Fahrzeiten und ergänzt fehlende Uhrzeiten als realistische Schätzwerte. Pro Tag ist ein flexibel platzierbarer Puffer von 1 Stunde eingetragen. Verkehr, Baustellen, Parkplatzsuche, Öffnungszeiten und tatsächliche Google-Maps-Fahrzeiten sollten vor und während der Reise geprüft werden. Alle Zeitangaben können im Cockpit bearbeitet werden."
+    }
+  ],
+  "places": [
+    {
+      "name": "ACE Hotel Annecy",
+      "category": "Unterkunft",
+      "address": "Annecy, Frankreich",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=ACE+Hotel+Annecy"
+    },
+    {
+      "name": "Liber Art",
+      "category": "Restaurant",
+      "address": "41 Rue Vaugelas, 74000 Annecy",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Liber+Art+41+Rue+Vaugelas+Annecy"
+    },
+    {
+      "name": "Lac de Roselend",
+      "category": "Natur",
+      "address": "Lac de Roselend, Frankreich",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Lac+de+Roselend"
+    },
+    {
+      "name": "Bonneval-sur-Arc",
+      "category": "Ort",
+      "address": "Bonneval-sur-Arc, Frankreich",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Bonneval-sur-Arc"
+    },
+    {
+      "name": "Briançon",
+      "category": "Ort",
+      "address": "Briançon, Frankreich",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Brian%C3%A7on"
+    },
+    {
+      "name": "Plage du Bois Vieux",
+      "category": "Baden",
+      "address": "05190 Rousset-Serre-Ponçon, Frankreich",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Plage+du+Bois+Vieux+Rousset-Serre-Pon%C3%A7on"
+    },
+    {
+      "name": "Route des Crêtes",
+      "category": "Panoramastraße",
+      "address": "Gorges du Verdon, Frankreich",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Route+des+Cr%C3%AAtes+Gorges+du+Verdon"
+    },
+    {
+      "name": "Jullien Oil Mill",
+      "category": "Einkauf",
+      "address": "24 Chem. du Moulin à Huile, 84490 Saint-Saturnin-lès-Apt",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Jullien+Oil+Mill+Saint-Saturnin-l%C3%A8s-Apt"
+    },
+    {
+      "name": "Pont du Gard",
+      "category": "Sehenswürdigkeit",
+      "address": "Pont du Gard, Frankreich",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Pont+du+Gard"
+    },
+    {
+      "name": "Dune du Pilat",
+      "category": "Natur",
+      "address": "Dune du Pilat, Frankreich",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Dune+du+Pilat"
+    },
+    {
+      "name": "Steinreihen von Carnac",
+      "category": "Sehenswürdigkeit",
+      "address": "Carnac, Frankreich",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Alignements+de+Carnac"
+    },
+    {
+      "name": "Mont-Saint-Michel",
+      "category": "Sehenswürdigkeit",
+      "address": "Mont-Saint-Michel, Frankreich",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Mont-Saint-Michel"
+    }
+  ],
+  "packing": []
+}

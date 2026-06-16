@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#1f8f5f" />
+  <title>Frankreich-Reise-Cockpit</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="hero">
+      <div>
+        <h1>Reise-Cockpit</h1>
+        <p id="today-summary" class="hero-subtitle">Importiere deine private Reiseplanung lokal auf dem Gerät.</p>
+      </div>
+      <button id="install-button" class="ghost-button hidden" type="button">Installieren</button>
+    </header>
+
+    <nav class="tabbar" aria-label="Hauptnavigation">
+      <button class="tab active" data-tab="dashboard" type="button">Heute</button>
+      <button class="tab" data-tab="plan" type="button">Plan</button>
+      <button class="tab" data-tab="documents" type="button">Wichtig</button>
+      <button class="tab" data-tab="map" type="button">Karte</button>
+      <button class="tab" data-tab="packing" type="button">Packen</button>
+      <button class="tab" data-tab="phrases" type="button">Französisch</button>
+    </nav>
+
+    <main>
+      <section id="dashboard" class="screen active-screen">
+        <article class="card accent-card">
+          <div class="card-heading">
+            <span>Heute</span>
+            <strong id="dashboard-date">—</strong>
+          </div>
+          <h2 id="dashboard-title">Frankreichreise</h2>
+          <p id="dashboard-location">Noch keine lokale Reiseplanung importiert.</p>
+          <div class="action-grid">
+            <a id="hotel-link" class="action-button" href="#" target="_blank" rel="noreferrer">Unterkunft öffnen</a>
+            <a id="route-link" class="action-button" href="#" target="_blank" rel="noreferrer">Route öffnen</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Nächste Schritte</h3>
+          <ul id="next-list" class="clean-list"></ul>
+        </article>
+
+        <article class="card">
+          <h3>Schnellzugriff</h3>
+          <div class="quick-grid">
+            <button class="quick-card" data-jump="plan" type="button">Reiseplan importieren</button>
+            <button class="quick-card" data-jump="documents" type="button">Tickets & Codes</button>
+            <button class="quick-card" data-jump="packing" type="button">Packliste</button>
+            <button class="quick-card" data-jump="phrases" type="button">Restaurant-Sätze</button>
+            <button class="quick-card" data-jump="map" type="button">Navigation</button>
+          </div>
+        </article>
+      </section>
+
+      <section id="plan" class="screen">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Tagesplaner</p>
+            <h2>Reisetage</h2>
+          </div>
+          <div class="timeline-tools">
+            <button id="scroll-today" class="ghost-button" type="button">Heute anzeigen</button>
+            <label class="import-label">Plan importieren<input id="plan-import" type="file" accept="application/json,.json" /></label>
+            <button id="export-data" class="ghost-button" type="button">Export</button>
+            <button id="clear-local-data" class="ghost-button danger-outline" type="button">Lokal löschen</button>
+            <button id="add-day" class="primary-button" type="button">Tag hinzufügen</button>
+          </div>
+        </div>
+        <p class="hint">Die echte Reiseplanung wird nicht aus GitHub geladen. Importiere eine private JSON-Datei lokal auf deinem Gerät. Danach gleicht die App das Handydatum mit den Datumsangaben ab und markiert den passenden Reisetag als „Heute“.</p>
+        <article id="local-data-status" class="status-card"></article>
+        <div id="day-list" class="stack"></div>
+      </section>
+
+      <section id="documents" class="screen">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Offline-Reiseordner</p>
+            <h2>Wichtige Infos</h2>
+          </div>
+          <button id="add-document" class="primary-button" type="button">Info hinzufügen</button>
+        </div>
+        <p class="warning">Keine Passwörter, Ausweiskopien oder sensiblen Daten öffentlich ins Repository legen. Nutze hier nur unkritische Hinweise oder lokale Notizen.</p>
+        <div id="document-list" class="stack"></div>
+      </section>
+
+      <section id="map" class="screen">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Navigation</p>
+            <h2>Gesamte Reiseroute</h2>
+          </div>
+          <button id="add-place" class="primary-button" type="button">Ort hinzufügen</button>
+        </div>
+        <article class="map-card">
+          <div id="route-overview" class="route-overview" aria-label="Schematische Übersicht der gesamten Reiseroute"></div>
+          <p id="map-status" class="map-status">Die Routenübersicht wird lokal aus dem importierten Reiseplan erstellt.</p>
+          <div class="map-actions">
+            <button id="load-interactive-map" class="primary-button" type="button">Interaktive Karte laden</button>
+            <button id="unload-interactive-map" class="ghost-button hidden" type="button">Karte entladen</button>
+          </div>
+          <div id="map-loading" class="map-loading hidden" role="status">OpenStreetMap-Karte wird geladen …</div>
+          <div id="route-map" class="route-map hidden" aria-label="Interaktive Karte der gesamten Reiseroute"></div>
+          <p class="map-note">Die sofort sichtbare Übersicht funktioniert offline. Die interaktive OpenStreetMap-Karte wird erst auf Knopfdruck geladen und benötigt eine Internetverbindung. Die grüne Linie zeigt die Reiseabfolge schematisch und ist keine straßengenaue Navigation.</p>
+        </article>
+        <div id="place-list" class="stack"></div>
+      </section>
+
+      <section id="packing" class="screen">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Packliste</p>
+            <h2>Was muss mit?</h2>
+          </div>
+          <div class="section-actions">
+            <label class="import-label">Packliste importieren<input id="packing-import" type="file" accept="application/json,.json,text/csv,.csv,text/plain,.txt" /></label>
+            <button id="add-pack-item" class="primary-button" type="button">Eintrag hinzufügen</button>
+          </div>
+        </div>
+        <div class="progress-wrap">
+          <div class="progress-label"><span>Gepackt</span><strong id="packing-progress-text">0%</strong></div>
+          <div class="progress-bar"><span id="packing-progress"></span></div>
+        </div>
+        <div class="filter-row" id="packing-filters" aria-label="Packliste nach Kategorie sortieren"></div>
+        <div id="packing-list" class="stack"></div>
+      </section>
+
+      <section id="phrases" class="screen">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Sprachhelfer</p>
+            <h2>Französisch unterwegs</h2>
+          </div>
+        </div>
+        <div class="filter-row" id="phrase-filters"></div>
+        <div id="phrase-list" class="stack"></div>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="editor-dialog">
+    <form method="dialog" id="editor-form" class="dialog-card">
+      <h2 id="dialog-title">Bearbeiten</h2>
+      <div id="dialog-fields" class="field-stack"></div>
+      <menu>
+        <button value="cancel" class="ghost-button" type="submit">Abbrechen</button>
+        <button id="save-dialog" value="save" class="primary-button" type="submit">Speichern</button>
+      </menu>
+    </form>
+  </dialog>
+
+  <div id="app-toast" class="app-toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

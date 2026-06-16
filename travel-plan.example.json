@@ -1,0 +1,187 @@
+{
+  "meta": {
+    "tripName": "Beispielreise Frankreich",
+    "sourceName": "Beispielplan",
+    "routeStart": {
+      "name": "Karlsruhe",
+      "coordinates": {
+        "lat": 49.0069,
+        "lng": 8.4037
+      }
+    }
+  },
+  "days": [
+    {
+      "date": "2026-06-12",
+      "title": "Anreise nach Straßburg",
+      "location": "Straßburg",
+      "accommodation": "Beispiel-Unterkunft Altstadt",
+      "hotelMap": "https://www.google.com/maps/search/?api=1&query=Strasbourg+Altstadt",
+      "routeMap": "https://www.google.com/maps/dir/?api=1&destination=Strasbourg",
+      "stops": [
+        {
+          "time": "08:30",
+          "title": "Abfahrt vorbereiten",
+          "note": "Tickets, Ausweis und Ladegerät bereitlegen."
+        },
+        {
+          "time": "11:45",
+          "title": "Ankunft und Orientierung",
+          "note": "Bahnhof, Tram und Weg zur Unterkunft prüfen."
+        },
+        {
+          "time": "14:00",
+          "title": "Check-in / Gepäck ablegen",
+          "note": "Falls Zimmer noch nicht frei: Gepäckaufbewahrung nutzen."
+        },
+        {
+          "time": "16:00",
+          "title": "Spaziergang durch La Petite France",
+          "note": "Erster Überblick, Fotos, Café-Pause."
+        },
+        {
+          "time": "19:30",
+          "title": "Abendessen in der Altstadt",
+          "note": "Französische Restaurant-Sätze testen."
+        }
+      ],
+      "notes": "Dieser Tag ist ein Beispiel. Er kann gelöscht oder durch den echten Import ersetzt werden."
+    },
+    {
+      "date": "2026-06-13",
+      "title": "Straßburg entdecken",
+      "location": "Straßburg",
+      "accommodation": "Beispiel-Unterkunft Altstadt",
+      "hotelMap": "https://www.google.com/maps/search/?api=1&query=Strasbourg+Altstadt",
+      "routeMap": "https://www.google.com/maps/dir/?api=1&destination=Cathedrale+Notre+Dame+de+Strasbourg",
+      "stops": [
+        {
+          "time": "09:30",
+          "title": "Cathédrale Notre-Dame",
+          "note": "Öffnungszeiten vorher prüfen."
+        },
+        {
+          "time": "11:00",
+          "title": "Altstadt und Münsterplatz",
+          "note": "Kurze Notizen zu Stadtbild und Atmosphäre machen."
+        },
+        {
+          "time": "13:00",
+          "title": "Mittagspause",
+          "note": "Bäckerei oder kleines Bistro suchen."
+        },
+        {
+          "time": "15:00",
+          "title": "Bootsfahrt / Museum als Option",
+          "note": "Plan A oder Regen-Alternative."
+        },
+        {
+          "time": "20:00",
+          "title": "Abendrunde am Wasser",
+          "note": "Lockerer Tagesabschluss."
+        }
+      ],
+      "notes": "Beispieltag für die Timeline."
+    },
+    {
+      "date": "2026-06-14",
+      "title": "Weiterfahrt nach Lyon",
+      "location": "Lyon",
+      "accommodation": "Beispiel-Hotel Lyon Zentrum",
+      "hotelMap": "https://www.google.com/maps/search/?api=1&query=Lyon+Zentrum+Hotel",
+      "routeMap": "https://www.google.com/maps/dir/?api=1&destination=Lyon",
+      "stops": [
+        {
+          "time": "08:00",
+          "title": "Auschecken",
+          "note": "Nichts im Zimmer vergessen."
+        },
+        {
+          "time": "10:15",
+          "title": "Zug / Weiterfahrt",
+          "note": "Gleis und Reservierung prüfen."
+        },
+        {
+          "time": "14:00",
+          "title": "Ankunft in Lyon",
+          "note": "Zur Unterkunft navigieren."
+        },
+        {
+          "time": "17:00",
+          "title": "Erster Spaziergang: Vieux Lyon",
+          "note": "Kartenlink und Rückweg speichern."
+        }
+      ],
+      "notes": "Beispiel für einen Ortswechsel."
+    }
+  ],
+  "documents": [
+    {
+      "title": "Hinweis: Beispielplan",
+      "category": "App-Test",
+      "content": "Dies sind nur Beispieldaten. Die echte Reiseplanung wird später lokal importiert und nicht auf GitHub hochgeladen."
+    },
+    {
+      "title": "Ticket-Check",
+      "category": "Vorbereitung",
+      "content": "Tickets, Reservierungen und Ausweis vor der Abfahrt griffbereit halten."
+    }
+  ],
+  "places": [
+    {
+      "name": "Straßburg Bahnhof",
+      "category": "Bahnhof",
+      "address": "Strasbourg, Frankreich",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Gare+de+Strasbourg"
+    },
+    {
+      "name": "Cathédrale Notre-Dame de Strasbourg",
+      "category": "Sehenswürdigkeit",
+      "address": "Place de la Cathédrale, Strasbourg",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Cathedrale+Notre+Dame+de+Strasbourg"
+    },
+    {
+      "name": "Vieux Lyon",
+      "category": "Stadtviertel",
+      "address": "Vieux Lyon, Lyon",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Vieux+Lyon"
+    }
+  ],
+  "packing": [
+    {
+      "text": "Personalausweis / Reisepass",
+      "category": "Dokumente",
+      "done": false
+    },
+    {
+      "text": "Tickets / Reservierungen offline speichern",
+      "category": "Dokumente",
+      "done": false
+    },
+    {
+      "text": "Ladekabel & Powerbank",
+      "category": "Technik",
+      "done": false
+    },
+    {
+      "text": "Krankenversicherungskarte",
+      "category": "Gesundheit",
+      "done": false
+    },
+    {
+      "text": "Bequeme Schuhe",
+      "category": "Kleidung",
+      "done": false
+    },
+    {
+      "text": "Kleine Reiseapotheke",
+      "category": "Gesundheit",
+      "done": false
+    },
+    {
+      "text": "Regenschutz / leichte Jacke",
+      "category": "Kleidung",
+      "done": false
+    }
+  ]
+}

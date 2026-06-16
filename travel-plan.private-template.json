@@ -1,0 +1,82 @@
+{
+  "meta": {
+    "tripName": "Frankreichreise",
+    "routeStart": {
+      "name": "Karlsruhe",
+      "coordinates": {
+        "lat": 49.0069,
+        "lng": 8.4037
+      }
+    }
+  },
+  "days": [
+    {
+      "date": "2026-08-03",
+      "title": "Anreise und Ankommen",
+      "location": "Straßburg",
+      "accommodation": "Unterkunft eintragen",
+      "hotelMap": "https://www.google.com/maps/search/?api=1&query=Strasbourg%20Hotel",
+      "routeMap": "https://www.google.com/maps/dir/?api=1&destination=Strasbourg",
+      "stops": [
+        {
+          "time": "08:30",
+          "title": "Abfahrt",
+          "note": "Tickets, Ausweis und Wasser bereitlegen."
+        },
+        {
+          "time": "13:00",
+          "title": "Ankunft",
+          "note": "Zur Unterkunft navigieren."
+        },
+        {
+          "time": "16:00",
+          "title": "Check-in",
+          "note": "Adresse und Zugangshinweise prüfen."
+        }
+      ],
+      "notes": "Private Tagesnotiz"
+    }
+  ],
+  "documents": [
+    {
+      "title": "Buchungsnummer Unterkunft",
+      "category": "Unterkunft",
+      "content": "Hier nur unkritische Hinweise eintragen. Zugangscodes besser im Passwortmanager lassen."
+    }
+  ],
+  "places": [
+    {
+      "name": "Unterkunft",
+      "category": "Schlafen",
+      "address": "Straßburg",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Strasbourg"
+    }
+  ],
+  "packing": [
+    {
+      "text": "Personalausweis / Reisepass",
+      "category": "Dokumente",
+      "done": false
+    },
+    {
+      "text": "Ladekabel & Powerbank",
+      "category": "Technik",
+      "done": false
+    },
+    {
+      "text": "Krankenversicherungskarte",
+      "category": "Gesundheit",
+      "done": false
+    },
+    {
+      "text": "Bequeme Schuhe",
+      "category": "Kleidung",
+      "done": false
+    },
+    {
+      "text": "Offline-Karten speichern",
+      "category": "Vorbereitung",
+      "done": false
+    }
+  ]
+}

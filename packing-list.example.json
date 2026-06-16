@@ -1,0 +1,7 @@
+{
+  "packing": [
+    { "text": "Reisepass", "category": "Dokumente", "done": false },
+    { "text": "Ladekabel", "category": "Technik", "done": false },
+    { "text": "Regenjacke", "category": "Kleidung", "done": false }
+  ]
+}
