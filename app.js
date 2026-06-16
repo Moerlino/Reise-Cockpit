@@ -354,16 +354,45 @@ function tripPeriod() {
 
 const TAB_ORDER = ["dashboard", "plan", "documents", "map", "packing", "phrases"];
 
-function switchTab(tabId) {
+let tabTransitionTimer = null;
+let tabTransitionRunning = false;
+
+function switchTab(tabId, directionHint = 0) {
+  const currentScreen = document.querySelector(".screen.active-screen");
+  const nextScreen = document.getElementById(tabId);
+  if (!nextScreen || currentScreen === nextScreen || tabTransitionRunning) return;
+
+  const currentTabId = document.querySelector(".tab.active")?.dataset.tab;
+  const currentIndex = TAB_ORDER.indexOf(currentTabId);
+  const nextIndex = TAB_ORDER.indexOf(tabId);
+  const direction = directionHint || (nextIndex >= currentIndex ? 1 : -1);
+  const enterClass = direction > 0 ? "screen-enter-right" : "screen-enter-left";
+  const leaveClass = direction > 0 ? "screen-leave-left" : "screen-leave-right";
+
+  tabTransitionRunning = true;
+  clearTimeout(tabTransitionTimer);
+  $$(".screen").forEach(screen => screen.classList.remove(
+    "screen-enter-right", "screen-enter-left", "screen-leave-left", "screen-leave-right"
+  ));
+
   $$(".tab").forEach(tab => tab.classList.toggle("active", tab.dataset.tab === tabId));
-  $$(".screen").forEach(screen => screen.classList.toggle("active-screen", screen.id === tabId));
+  nextScreen.classList.add("active-screen", enterClass);
+  currentScreen?.classList.add(leaveClass);
+
   document.querySelector(`.tab[data-tab="${tabId}"]`)?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
-  window.scrollTo({ top: 0, behavior: "smooth" });
-  if (tabId === "plan") setTimeout(scrollTodayIntoView, 80);
+  window.scrollTo({ top: 0, behavior: "auto" });
+
+  tabTransitionTimer = setTimeout(() => {
+    currentScreen?.classList.remove("active-screen", leaveClass);
+    nextScreen.classList.remove(enterClass);
+    tabTransitionRunning = false;
+  }, 340);
+
+  if (tabId === "plan") setTimeout(scrollTodayIntoView, 360);
   if (tabId === "map") setTimeout(() => {
     renderRouteOverview();
     routeMapInstance?.invalidateSize();
-  }, 80);
+  }, 360);
 }
 
 function setupSwipeNavigation() {
@@ -410,7 +439,7 @@ function setupSwipeNavigation() {
 
     const nextIndex = deltaX < 0 ? currentIndex + 1 : currentIndex - 1;
     if (nextIndex < 0 || nextIndex >= TAB_ORDER.length) return;
-    switchTab(TAB_ORDER[nextIndex]);
+    switchTab(TAB_ORDER[nextIndex], deltaX < 0 ? 1 : -1);
   }, { passive: true });
 
   swipeArea.addEventListener("touchcancel", () => {

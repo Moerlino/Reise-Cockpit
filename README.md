@@ -125,19 +125,18 @@ Beispiel je Reisetag:
 
 Die Kartenkacheln werden bei geöffneter Karte aus dem Internet geladen. OpenStreetMap muss sichtbar genannt werden; die App enthält die entsprechende Quellenangabe. Für eine private Reise-App ist die Nutzung gering. Die Kartenansicht ist nicht als Offline-Karte ausgelegt.
 
-## Version 15
-- Karlsruhe wird in der Kartenansicht ausdrücklich als Startpunkt dargestellt.
-- Annecy ist der erste nummerierte Stopp.
-- Die Rückkehr nach Karlsruhe wird als Ziel markiert.
-- Die Route bleibt eine schematische Verbindungslinie; es wird kein Straßenrouting verwendet.
-
-
-## Version 15
-
-Die verzögert ladbare OpenStreetMap-Karte wurde wiederhergestellt. Die lokale Routenübersicht erscheint sofort; die interaktive Karte wird erst über „Interaktive Karte laden“ geöffnet. Karlsruhe bleibt Start- und Endpunkt, Annecy der erste Stopp.
 
 
 ## Version 16
 - Mobile Wischnavigation: nach links/rechts zwischen den Hauptreitern wechseln.
 - Formulare, Dialoge, Links, Schaltflächen und die interaktive Karte sind von der Wischgeste ausgenommen.
 - Randgesten werden ignoriert, damit die Browser-Zurück-Geste auf iOS nicht gestört wird.
+
+
+## Version 17 – flüssige Wischanimation und Datenschutz
+
+- Beim Wischen gleiten die Bereiche passend zur Wischrichtung ein und aus.
+- Die Animation respektiert die Systemeinstellung „Bewegung reduzieren“.
+- Keine konkrete private Reiseplandatei ist Bestandteil dieses Pakets.
+- Private Reisepläne werden ausschließlich über „Plan importieren“ auf dem Gerät geladen.
+- Vor dem Upload alte private JSON-Dateien im GitHub-Repository ausdrücklich löschen; bloßes Hochladen der neuen Dateien entfernt alte Repository-Dateien nicht.

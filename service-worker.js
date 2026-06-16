@@ -1,4 +1,4 @@
-const CACHE_NAME = "france-travel-cockpit-v16-swipe-navigation";
+const CACHE_NAME = "france-travel-cockpit-v17-swipe-animation-private";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -10,8 +10,7 @@ const APP_SHELL = [
   "./travel-plan.private-template.json",
   "./travel-plan.example.json",
   "./packing-list.example.json",
-  "./packing-list.example.csv",
-  "./frankreich-reiseplan-cockpit-2026-ohne-puffer-mit-karte.json"
+  "./packing-list.example.csv"
 ];
 
 self.addEventListener("install", event => {
