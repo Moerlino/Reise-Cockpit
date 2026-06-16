@@ -354,96 +354,317 @@ function tripPeriod() {
 
 const TAB_ORDER = ["dashboard", "plan", "documents", "map", "packing", "phrases"];
 
-let tabTransitionTimer = null;
+const TAB_ANIMATION_MS = 360;
 let tabTransitionRunning = false;
+let tabTransitionCleanupTimer = null;
+let swipeGesture = null;
 
-function switchTab(tabId, directionHint = 0) {
-  const currentScreen = document.querySelector(".screen.active-screen");
-  const nextScreen = document.getElementById(tabId);
-  if (!nextScreen || currentScreen === nextScreen || tabTransitionRunning) return;
+function getActiveTabId() {
+  return document.querySelector(".tab.active")?.dataset.tab || TAB_ORDER[0];
+}
 
-  const currentTabId = document.querySelector(".tab.active")?.dataset.tab;
-  const currentIndex = TAB_ORDER.indexOf(currentTabId);
+function getTabDirection(tabId, directionHint = 0) {
+  if (directionHint) return directionHint > 0 ? 1 : -1;
+  const currentIndex = TAB_ORDER.indexOf(getActiveTabId());
   const nextIndex = TAB_ORDER.indexOf(tabId);
-  const direction = directionHint || (nextIndex >= currentIndex ? 1 : -1);
-  const enterClass = direction > 0 ? "screen-enter-right" : "screen-enter-left";
-  const leaveClass = direction > 0 ? "screen-leave-left" : "screen-leave-right";
+  return nextIndex >= currentIndex ? 1 : -1;
+}
 
-  tabTransitionRunning = true;
-  clearTimeout(tabTransitionTimer);
-  $$(".screen").forEach(screen => screen.classList.remove(
-    "screen-enter-right", "screen-enter-left", "screen-leave-left", "screen-leave-right"
-  ));
-
+function updateActiveTab(tabId) {
   $$(".tab").forEach(tab => tab.classList.toggle("active", tab.dataset.tab === tabId));
-  nextScreen.classList.add("active-screen", enterClass);
-  currentScreen?.classList.add(leaveClass);
+  document.querySelector(`.tab[data-tab="${tabId}"]`)?.scrollIntoView({
+    behavior: "smooth",
+    block: "nearest",
+    inline: "center"
+  });
+}
 
-  document.querySelector(`.tab[data-tab="${tabId}"]`)?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+function runAfterTabSwitch(tabId) {
   window.scrollTo({ top: 0, behavior: "auto" });
-
-  tabTransitionTimer = setTimeout(() => {
-    currentScreen?.classList.remove("active-screen", leaveClass);
-    nextScreen.classList.remove(enterClass);
-    tabTransitionRunning = false;
-  }, 340);
-
-  if (tabId === "plan") setTimeout(scrollTodayIntoView, 360);
-  if (tabId === "map") setTimeout(() => {
+  if (tabId === "plan") window.setTimeout(scrollTodayIntoView, 80);
+  if (tabId === "map") window.setTimeout(() => {
     renderRouteOverview();
     routeMapInstance?.invalidateSize();
-  }, 360);
+  }, 80);
+}
+
+function clearPanelAnimationStyles(screen) {
+  if (!screen) return;
+  screen.classList.remove("swipe-visible", "swipe-current", "swipe-next", "swipe-settling");
+  screen.style.removeProperty("transform");
+  screen.style.removeProperty("opacity");
+  screen.style.removeProperty("transition-duration");
+}
+
+function preparePanelTransition(currentScreen, nextScreen, direction) {
+  const main = document.querySelector("main");
+  const width = Math.max(main?.clientWidth || window.innerWidth, 1);
+
+  clearTimeout(tabTransitionCleanupTimer);
+  $$(".screen").forEach(screen => {
+    if (screen !== currentScreen && screen !== nextScreen) clearPanelAnimationStyles(screen);
+  });
+
+  nextScreen.classList.add("swipe-visible", "swipe-next");
+  currentScreen.classList.add("swipe-current");
+  nextScreen.style.transform = `translate3d(${direction * width}px, 0, 0)`;
+  nextScreen.style.opacity = "0.74";
+  currentScreen.style.transform = "translate3d(0, 0, 0)";
+  currentScreen.style.opacity = "1";
+
+  // Erst nach dem Sichtbarmachen des Zielbereichs lässt sich dessen Höhe zuverlässig messen.
+  const transitionHeight = Math.max(currentScreen.offsetHeight, nextScreen.offsetHeight, 1);
+  main?.classList.add("tab-transitioning");
+  if (main) main.style.height = `${transitionHeight}px`;
+
+  return { main, width };
+}
+
+function setPanelPositions(currentScreen, nextScreen, direction, deltaX, width) {
+  const limitedDelta = direction > 0
+    ? Math.max(-width, Math.min(0, deltaX))
+    : Math.min(width, Math.max(0, deltaX));
+  const progress = Math.min(1, Math.abs(limitedDelta) / width);
+
+  currentScreen.style.transform = `translate3d(${limitedDelta}px, 0, 0)`;
+  nextScreen.style.transform = `translate3d(${limitedDelta + direction * width}px, 0, 0)`;
+  currentScreen.style.opacity = String(1 - progress * 0.18);
+  nextScreen.style.opacity = String(0.74 + progress * 0.26);
+  return limitedDelta;
+}
+
+function finishPanelTransition({ currentScreen, nextScreen, tabId, completed }) {
+  const main = document.querySelector("main");
+
+  clearPanelAnimationStyles(currentScreen);
+  clearPanelAnimationStyles(nextScreen);
+  main?.classList.remove("tab-transitioning");
+  main?.style.removeProperty("height");
+
+  if (completed) {
+    currentScreen?.classList.remove("active-screen");
+    nextScreen?.classList.add("active-screen");
+    updateActiveTab(tabId);
+    runAfterTabSwitch(tabId);
+  } else {
+    currentScreen?.classList.add("active-screen");
+    nextScreen?.classList.remove("active-screen");
+  }
+
+  tabTransitionRunning = false;
+  swipeGesture = null;
+}
+
+function settlePanelTransition({
+  currentScreen,
+  nextScreen,
+  tabId,
+  direction,
+  width,
+  complete,
+  duration = TAB_ANIMATION_MS
+}) {
+  tabTransitionRunning = true;
+  currentScreen.classList.add("swipe-settling");
+  nextScreen.classList.add("swipe-settling");
+  currentScreen.style.transitionDuration = `${duration}ms`;
+  nextScreen.style.transitionDuration = `${duration}ms`;
+
+  // Zwei Frames stellen sicher, dass Safari die Ausgangsposition zeichnet,
+  // bevor die Zielposition gesetzt wird.
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    if (complete) {
+      currentScreen.style.transform = `translate3d(${-direction * width}px, 0, 0)`;
+      currentScreen.style.opacity = "0.72";
+      nextScreen.style.transform = "translate3d(0, 0, 0)";
+      nextScreen.style.opacity = "1";
+    } else {
+      currentScreen.style.transform = "translate3d(0, 0, 0)";
+      currentScreen.style.opacity = "1";
+      nextScreen.style.transform = `translate3d(${direction * width}px, 0, 0)`;
+      nextScreen.style.opacity = "0.74";
+    }
+  }));
+
+  let cleanedUp = false;
+  const cleanup = () => {
+    if (cleanedUp) return;
+    cleanedUp = true;
+    window.clearTimeout(tabTransitionCleanupTimer);
+    finishPanelTransition({
+      currentScreen,
+      nextScreen,
+      tabId,
+      completed: complete
+    });
+  };
+
+  nextScreen.addEventListener("transitionend", cleanup, { once: true });
+  tabTransitionCleanupTimer = window.setTimeout(cleanup, duration + 120);
+}
+
+function switchTab(tabId, directionHint = 0) {
+  if (swipeGesture?.active) return;
+  const currentScreen = document.querySelector(".screen.active-screen");
+  const nextScreen = document.getElementById(tabId);
+  if (!currentScreen || !nextScreen || currentScreen === nextScreen || tabTransitionRunning) return;
+
+  const direction = getTabDirection(tabId, directionHint);
+  const { width } = preparePanelTransition(currentScreen, nextScreen, direction);
+  updateActiveTab(tabId);
+  settlePanelTransition({
+    currentScreen,
+    nextScreen,
+    tabId,
+    direction,
+    width,
+    complete: true,
+    duration: TAB_ANIMATION_MS
+  });
 }
 
 function setupSwipeNavigation() {
   const swipeArea = document.querySelector("main");
-  if (!swipeArea || !("ontouchstart" in window)) return;
+  if (!swipeArea) return;
 
-  let startX = 0;
-  let startY = 0;
-  let startedAt = 0;
-  let blocked = false;
+  const interactiveSelector = [
+    "input", "textarea", "select", "button", "a", "label", "dialog",
+    "[contenteditable='true']", "#interactive-route-map", ".leaflet-container"
+  ].join(",");
 
-  const isInteractiveTarget = target => Boolean(target.closest(
-    "input, textarea, select, button, a, label, dialog, [contenteditable='true'], #interactive-route-map, .leaflet-container"
-  ));
+  const resetCandidate = () => {
+    if (swipeGesture?.active && swipeGesture.currentScreen && swipeGesture.nextScreen) {
+      settlePanelTransition({
+        currentScreen: swipeGesture.currentScreen,
+        nextScreen: swipeGesture.nextScreen,
+        tabId: swipeGesture.tabId,
+        direction: swipeGesture.direction,
+        width: swipeGesture.width,
+        complete: false,
+        duration: 190
+      });
+    } else {
+      swipeGesture = null;
+    }
+  };
 
   swipeArea.addEventListener("touchstart", event => {
-    if (event.touches.length !== 1) {
-      blocked = true;
-      return;
-    }
+    if (tabTransitionRunning || event.touches.length !== 1) return;
     const touch = event.touches[0];
-    const edgeMargin = 24;
-    blocked = isInteractiveTarget(event.target)
+    const edgeMargin = 22;
+    const blocked = Boolean(event.target.closest(interactiveSelector))
       || touch.clientX <= edgeMargin
       || touch.clientX >= window.innerWidth - edgeMargin;
-    startX = touch.clientX;
-    startY = touch.clientY;
-    startedAt = Date.now();
+
+    swipeGesture = {
+      blocked,
+      active: false,
+      directionLocked: false,
+      startX: touch.clientX,
+      startY: touch.clientY,
+      lastX: touch.clientX,
+      lastTime: performance.now(),
+      startedAt: performance.now(),
+      deltaX: 0,
+      velocityX: 0,
+      currentScreen: null,
+      nextScreen: null,
+      tabId: null,
+      direction: 0,
+      width: 0
+    };
   }, { passive: true });
 
+  swipeArea.addEventListener("touchmove", event => {
+    const gesture = swipeGesture;
+    if (!gesture || gesture.blocked || event.touches.length !== 1) return;
+
+    const touch = event.touches[0];
+    const deltaX = touch.clientX - gesture.startX;
+    const deltaY = touch.clientY - gesture.startY;
+    const absX = Math.abs(deltaX);
+    const absY = Math.abs(deltaY);
+
+    if (!gesture.directionLocked) {
+      if (absX < 8 && absY < 8) return;
+      if (absY > absX * 0.9) {
+        gesture.blocked = true;
+        return;
+      }
+
+      const direction = deltaX < 0 ? 1 : -1;
+      const currentIndex = TAB_ORDER.indexOf(getActiveTabId());
+      const nextIndex = currentIndex + direction;
+      if (nextIndex < 0 || nextIndex >= TAB_ORDER.length) {
+        gesture.blocked = true;
+        return;
+      }
+
+      const currentScreen = document.querySelector(".screen.active-screen");
+      const tabId = TAB_ORDER[nextIndex];
+      const nextScreen = document.getElementById(tabId);
+      if (!currentScreen || !nextScreen) {
+        gesture.blocked = true;
+        return;
+      }
+
+      const prepared = preparePanelTransition(currentScreen, nextScreen, direction);
+      gesture.directionLocked = true;
+      gesture.active = true;
+      gesture.direction = direction;
+      gesture.currentScreen = currentScreen;
+      gesture.nextScreen = nextScreen;
+      gesture.tabId = tabId;
+      gesture.width = prepared.width;
+      swipeArea.classList.add("is-live-swiping");
+    }
+
+    if (!gesture.active) return;
+    event.preventDefault();
+
+    const now = performance.now();
+    const frameDuration = Math.max(now - gesture.lastTime, 1);
+    gesture.velocityX = (touch.clientX - gesture.lastX) / frameDuration;
+    gesture.lastX = touch.clientX;
+    gesture.lastTime = now;
+    gesture.deltaX = setPanelPositions(
+      gesture.currentScreen,
+      gesture.nextScreen,
+      gesture.direction,
+      deltaX,
+      gesture.width
+    );
+  }, { passive: false });
+
   swipeArea.addEventListener("touchend", event => {
-    if (blocked || event.changedTouches.length !== 1) return;
-    const touch = event.changedTouches[0];
-    const deltaX = touch.clientX - startX;
-    const deltaY = touch.clientY - startY;
-    const duration = Date.now() - startedAt;
+    const gesture = swipeGesture;
+    swipeArea.classList.remove("is-live-swiping");
+    if (!gesture || gesture.blocked || !gesture.active || event.changedTouches.length !== 1) {
+      swipeGesture = null;
+      return;
+    }
 
-    // Nur eine eindeutige, kurze Horizontalbewegung als Reiterwechsel werten.
-    if (duration > 900 || Math.abs(deltaX) < 65 || Math.abs(deltaX) < Math.abs(deltaY) * 1.35) return;
+    const travelled = Math.abs(gesture.deltaX);
+    const progress = travelled / gesture.width;
+    const fastSwipe = Math.abs(gesture.velocityX) >= 0.42 && travelled >= 34;
+    const complete = progress >= 0.24 || fastSwipe;
+    const remaining = complete ? 1 - progress : progress;
+    const duration = Math.max(170, Math.min(330, 180 + remaining * 170));
 
-    const activeTabId = document.querySelector(".tab.active")?.dataset.tab;
-    const currentIndex = TAB_ORDER.indexOf(activeTabId);
-    if (currentIndex < 0) return;
-
-    const nextIndex = deltaX < 0 ? currentIndex + 1 : currentIndex - 1;
-    if (nextIndex < 0 || nextIndex >= TAB_ORDER.length) return;
-    switchTab(TAB_ORDER[nextIndex], deltaX < 0 ? 1 : -1);
+    settlePanelTransition({
+      currentScreen: gesture.currentScreen,
+      nextScreen: gesture.nextScreen,
+      tabId: gesture.tabId,
+      direction: gesture.direction,
+      width: gesture.width,
+      complete,
+      duration
+    });
   }, { passive: true });
 
   swipeArea.addEventListener("touchcancel", () => {
-    blocked = true;
+    swipeArea.classList.remove("is-live-swiping");
+    resetCandidate();
   }, { passive: true });
 }
 
@@ -1345,7 +1566,21 @@ window.addEventListener("change", event => {
 });
 
 if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => navigator.serviceWorker.register("service-worker.js"));
+  let serviceWorkerReloading = false;
+  navigator.serviceWorker.addEventListener("controllerchange", () => {
+    if (serviceWorkerReloading) return;
+    serviceWorkerReloading = true;
+    window.location.reload();
+  });
+
+  window.addEventListener("load", async () => {
+    try {
+      const registration = await navigator.serviceWorker.register("service-worker.js", { updateViaCache: "none" });
+      await registration.update();
+    } catch (error) {
+      console.warn("Service Worker konnte nicht aktualisiert werden:", error);
+    }
+  });
 }
 
 setupSwipeNavigation();

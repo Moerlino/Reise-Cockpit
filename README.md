@@ -140,3 +140,12 @@ Die Kartenkacheln werden bei geöffneter Karte aus dem Internet geladen. OpenStr
 - Keine konkrete private Reiseplandatei ist Bestandteil dieses Pakets.
 - Private Reisepläne werden ausschließlich über „Plan importieren“ auf dem Gerät geladen.
 - Vor dem Upload alte private JSON-Dateien im GitHub-Repository ausdrücklich löschen; bloßes Hochladen der neuen Dateien entfernt alte Repository-Dateien nicht.
+
+## Version 18 – flüssige Wischanimation
+
+- Der sichtbare Reiter folgt beim horizontalen Wischen direkt dem Finger.
+- Der benachbarte Reiter gleitet gleichzeitig von links oder rechts herein.
+- Zu kurze Wischbewegungen federn flüssig zur Ausgangsseite zurück.
+- Formulare, Schaltflächen, Links, Dialoge und die interaktive Karte bleiben von der Wischgeste ausgenommen.
+- Der Service Worker lädt neue App-Dateien bevorzugt aus dem Netz, damit Updates zuverlässiger sichtbar werden.
+- Es ist kein konkreter privater Reiseplan im Paket enthalten.
